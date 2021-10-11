@@ -1,0 +1,35 @@
+programa {
+	funcao inicio() {
+	
+		inteiro quantidade
+		inteiro opcao
+        real valortotal= 0.0
+        real valorpeca
+		inteiro pecaCamisa
+		escreva("Temos 3 opções de peças na loja: \n")
+		escreva("1- camisa \n 2- short \n 3- regata \n")
+		leia(opcao)
+		
+		escreva("Digite a quantidade de peças: \n")
+		leia(quantidade)
+		
+		    se (opcao == 1){
+		        limpa()
+		        real camisaNike = 150.00, camisaLacoste = 80.00, camisaPena = 120.00
+		        escreva("1- Camisa Nike - R$150,00\n 2- Camisa Lacoste - R$80,00\n 3- Camisa Pena - R$120,00\n")
+		        escreva("Escolha as opções de camisa: \n")
+		        leia(pecaCamisa)
+		        valortotal= camisaNike * quantidade 
+		        
+		    }
+		       // senao se (opcao == 2){
+		            //valortotal= short * quantidade 
+		       // }
+		            //senao se (opcao == 3){
+		          //      valortotal= regata * quantidade
+		          //  }
+		            
+		  escreva("O valor total da sua compra é de: R$", valortotal)
+		  	        
+	}
+}
