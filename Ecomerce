@@ -1,0 +1,343 @@
+programa {
+	funcao inicio() {
+	    inteiro opcao
+	    cadeia selec
+	    
+	    escreva("=================================== \n")
+	    escreva("Bem vindo a loja mateus periféricos \n")
+	    escreva("=================================== \n")
+	    
+	    escreva("Escolha qual opção você deseja: \n")
+	    escreva("1- Cadastro/login \n")
+	    escreva("2- Catalogo \n")
+	    escreva("3- Parcerias \n")
+	    leia(opcao)
+	        se(opcao == 1){
+	            escreva(cadastro())
+	        }
+	            senao se(opcao == 2){
+	                escreva(catalogoPreco())
+	                escreva("Você deseja comprar? (s/n) \n")
+                    leia(selec)
+                        se(selec == "s"){
+                            escreva(compra())
+                            
+                        }
+                        senao se(selec == "n"){
+                            escreva("Obrigado por visitar nosso site, volte sempre!")
+                        }
+            }
+                senao se(opcao == 3){
+                    escreva(parceria())
+                }
+	            
+	}
+	
+	funcao cadeia pagamento(){
+	    inteiro opcaoPag
+	    cadeia pix
+	    cadeia NumCartao 
+	    inteiro codSeg
+	    cadeia datValid
+	    cadeia nomeTitular[30]
+	    
+	    
+	   escreva("===================================================\n")
+	    escreva("====Escolha a opção de pagamento====\n")
+	    escreva("====1 - PIX, 2 - CARTÃO====")
+	    escreva("===================================================\n")
+	    leia(opcaoPag)
+	    
+	        se(opcaoPag == 1){
+	            escreva("Digite sua chave pix: \n")
+	                leia(pix)
+	        }
+	            senao se(opcaoPag == 2){
+	                escreva("Digite o numero do seu cartão de credito: \n")
+	                leia(NumCartao)
+	                escreva("Digite o código de segurança do cartão: \n")
+	                leia(codSeg)
+	                escreva("Digite a data de validade: \n")
+	                leia(datValid)
+	                escreva("Digite o nome do titular do cartão: \n")
+	                leia(nomeTitular[1])
+	            }
+	            retorne " "
+	}
+	
+	funcao cadeia cadastro(){
+	    inteiro opcaoCadastro
+	    cadeia premium, selec
+	    cadeia usuario[10], email[20], senha[10]
+	    caracter genero
+	    
+	    escreva("Você ja possui cadastro em nosso site? (1-S, 2-N) \n")
+	    leia(opcaoCadastro)
+	    
+	    se(opcaoCadastro == 1){
+	        limpa()
+	        
+	        escreva(login())
+	        escreva(compra())
+	    }
+	        
+	    
+	        
+	            senao se(opcaoCadastro == 2){
+	    escreva("===================================================\n")
+	    escreva("==== Menu de Cadastro ====\n")
+	    escreva("===================================================\n")
+	        escreva("Informe seu gênero: ")
+	        escreva("== M - Masculino == F - Feminino ==: \n")
+	        leia(genero)
+	        escreva("Digite o seu nome: \n")
+	        leia(usuario[1])
+	        escreva("Digite seu email: \n")
+	        leia(email[1])
+	        escreva("Digite uma senha: \n")
+	        leia(senha[1])
+	        
+	        escreva("Você deseja se tornar premium? (s/n) \n")
+	        leia(premium)
+            
+            se (premium == "s"){
+                escreva(CadastroPremium())
+            }
+            senao se (premium == "n")
+                escreva(catalogoPrecoCli())
+                escreva("Você deseja realizar uma compra? (s/n)\n")
+                leia(selec)
+                    
+                    se(selec == "s"){
+                        escreva(compra())
+                    }
+                    
+                        senao se(selec == "n"){
+                            escreva("Obrigado por visitar nossa loja!")
+                        }
+	        }
+	            retorne " "
+	}
+	
+	funcao cadeia entrega(){
+	    inteiro cep, numCasa
+	    cadeia rua[20], bairro[20], complemento[20]
+	    
+	    escreva("Digite o seu cep: \n")
+	    leia(cep)
+	    escreva("Digite o numero da sua casa: \n")
+	    leia(numCasa)
+	    escreva("Digite o nome da sua rua: \n")
+	    leia(rua[1])
+	    escreva("Digite o seu bairro: \n")
+	    leia(bairro[1])
+	    escreva("Digite o complemento se necessário: \n")
+	    leia(complemento[1])
+	    
+	    retorne " "
+	}
+	
+	funcao cadeia CadastroPremium(){
+	    inteiro opcaoPlano
+	
+	escreva("===================================\n")
+	escreva("======== Planos Premiuns ==========\n")
+	escreva("===================================\n")
+	
+	escreva("1 - Plano premium simple ======== R$29.90 \n")
+	escreva("Vantagens plano premium simples: Desconto em toda a loja, ganha pontos em dobro nas suas compras, frete grátis \n")
+	escreva("2 - Plano premium completo ======== R$59.90 \n")
+	escreva("Vantagens plano premium completo: Desconto em toda a loja, ganha pontos em triplo, frete grátis, acesso ao spotify gratis por 2 meses e ao globoplay \n")
+	leia(opcaoPlano)
+	
+	
+	se(opcaoPlano == 1){
+	        escreva(pagamento())
+	    }
+	        senao se(opcaoPlano == 2){
+	            escreva(pagamento())
+	        }
+	
+	
+	
+	retorne " "
+	}
+	
+	funcao cadeia catalogoPreco(){
+	    limpa()
+	   escreva("Catalogo De Produtos para clientes sem cadastro: \n")
+	    
+	     escreva(" 1- Teclado Razer ---R$650,00\n 2- Teclado Hyperx ---R$430,00\n 3- Teclado Logitech ---R$300,00\n")
+	     escreva(" 4- Mouse Razer ---R$330,00\n 5- Mouse Hyperx ---R$250,00\n 6- Mouse Logitech ---R$ 220,00\n")
+	     escreva(" 8- Headset Razer ---R$800,00\n 9- Headset Hyperx ---R$600,00\n 10- Headset Logitech ---R$750,00\n")
+	     retorne " "
+	}
+	funcao cadeia catalogoPrecoCli(){
+	    limpa()
+	    escreva("Catalogo De Produtos para clientes cadastrados: \n")
+	    
+	     escreva(" 1- Teclado Razer ---R$640,00\n 2- Teclado Hyperx ---R$420,00\n 3- Teclado Logitech ---R$290,00\n")
+	     escreva(" 4- Mouse Razer ---R$320,00\n 5- Mouse Hyperx ---R$240,00\n 6- Mouse Logitech ---R$ 210,00\n")
+	     escreva(" 8- Headset Razer ---R$790,00\n 9- Headset Hyperx ---R$590,00\n 10- Headset Logitech ---R$740,00\n")
+	     retorne " "
+	}
+	funcao cadeia catalogoPrecoPremi(){
+	    limpa()
+	    escreva("Catalogo De Produtos para clientes premium: \n")
+	    
+	     escreva(" 1- Teclado Razer ---R$630,00\n 2- Teclado Hyperx ---R$410,00\n 3- Teclado Logitech ---R$280,00\n")
+	     escreva(" 4- Mouse Razer ---R$310,00\n 5- Mouse Hyperx ---R$230,00\n 6- Mouse Logitech ---R$ 200,00\n")
+	     escreva(" 8- Headset Razer ---R$780,00\n 9- Headset Hyperx ---R$580,00\n 10- Headset Logitech ---R$730,00\n")
+	     retorne " "
+	}    
+	
+	funcao cadeia estoque(){
+	       limpa()
+	       escreva("Estoque de Produtos: \n")
+	       
+	       escreva("Estoque Teclados: \n")
+	       escreva(" Teclado Razer ---- 200 peças em estoque\n Teclado Hyperx ---- 200 peças em estoque\n Teclado Logitech ---- 200 peças em estoque\n")
+	       escreva("Estoque Mouses: \n")
+	       escreva(" Mouse Razer ---- 150 peças em estoque\n Mouse Hyperx ---- 150 peças em estoque\n Mouse Logitech ---- 150 peças em estoque\n")
+	       escreva("Estoque Headsets: \n")
+	       escreva(" Headset Razer ---- 300 peças em estoque\n Headset Hyperx ---- 300 peças em estoque\n Headset Logitech ---- 300 peças em estoque\n")
+	        
+	       retorne " "
+	   }
+	   
+	    funcao cadeia parceria(){
+	       cadeia opcaoParceiro
+	       cadeia cnpj[30],co[30]
+	       cadeia moti[30],bene[30]
+	       limpa()
+	       escreva("Nossas pacerias são:\n")
+	       escreva("Spotify \n")
+	       escreva("Razer \n")
+	       escreva("Hyperx \n")
+	       escreva("Logitech \n")
+	       escreva("GloboPlay \n")
+	       
+	       escreva("Você deseja se torna parceiro da Empresa? (s/n)\n")
+	       leia(opcaoParceiro)
+	                se(opcaoParceiro == "s"){
+	                    escreva("Digite seu cnpj: \n")
+	                    leia(cnpj[1])
+	                    escreva("Digite o Nome do seu Co: \n")
+	                    leia(co[1])
+	                    escreva("Porque deseja se tornar parceiro da nossa empresa? \n")
+	                    leia(moti[1])
+	                    escreva("Quais os seus benefícios para nossa empresa? \n")
+	                    leia(bene[1])
+	                }
+	                    senao se(opcaoParceiro == "n"){
+	                        escreva("Obrigado pela sua atenção, volte sempre.")
+	                    }
+	       retorne " "
+	   }
+	   
+	   funcao cadeia login(){
+	       cadeia user, senha
+	       
+	       escreva("Digite seu usuário: \n")
+	            leia(user)
+	            escreva("Digite sua senha: \n")
+	            leia(senha)
+	                se((user == "gersu")e(senha == "sla123")){
+	                    
+	                    escreva(catalogoPrecoCli())
+	                }
+	                retorne " "
+	   }
+	   
+	   funcao cadeia compra(){
+	       inteiro opcaoCompra
+	       inteiro selecT,selecM,selecH
+	       
+	       limpa()
+	       escreva("Escolha o tipo de periférico que você deseja comprar: \n")
+	       escreva("1- Teclados \n")
+	       escreva("2- Mouses  \n")
+	       escreva("3- Headsets \n")
+	       
+	       leia(opcaoCompra)
+	            se(opcaoCompra == 1){
+	                 escreva("1- Teclado Razer ---R$650,00\n 2- Teclado Hyperx ---R$430,00\n 3- Teclado Logitech ---R$300,00\n")
+	                 escreva("Escolha o seu teclado: \n")
+	                 leia(selecT)
+	                    se(selecT == 1){
+	                        escreva(pagamento())
+	                        escreva(entrega())
+	                        escreva("Agradecemos por escolher nossa loja \n")
+	                    }
+	                        senao se(selecT == 2){
+	                            escreva(pagamento())
+	                            escreva(entrega())
+	                            escreva("Agradecemos por escolher nossa loja \n")
+	                        }
+	                            senao se(selecT == 3){
+	                                escreva(pagamento())
+	                                escreva(entrega())
+	                                escreva("Agradecemos por escolher nossa loja \n")
+	                            }
+	                                senao se(selecT == 4){
+	                                    escreva(pagamento())
+	                                    escreva(entrega())
+	                                    escreva("Agradecemos por escolher nossa loja \n")
+	                                }
+	                            
+	                        }
+	           senao se (opcaoCompra == 2){
+	               escreva(" 1- Mouse Razer ---R$330,00\n 2- Mouse Hyperx ---R$250,00\n 3- Mouse Logitech ---R$ 220,00\n")
+	               escreva("Escolha seu mouse: \n")
+	               leia(selecM)
+	               	   se(selecM == 1){
+	                        escreva(pagamento())
+	                        escreva(entrega())
+	                        escreva("Agradecemos por escolher nossa loja \n")
+	                    }
+	                        senao se(selecM == 2){
+	                            escreva(pagamento())
+	                            escreva(entrega())
+	                            escreva("Agradecemos por escolher nossa loja \n")
+	                        }
+	                            senao se(selecM == 3){
+	                                escreva(pagamento())
+	                                escreva(entrega())
+	                                escreva("Agradecemos por escolher nossa loja \n")
+	                            }
+	                                senao se(selecM == 4){
+	                                    escreva(pagamento())
+	                                    escreva(entrega())
+	                                    escreva("Agradecemos por escolher nossa loja \n")
+	                                }
+	               
+	           }
+	           senao se(opcaoCompra == 3){
+	                 escreva(" 1- Headset Razer ---R$800,00\n 2- Headset Hyperx ---R$600,00\n 3- Headset Logitech ---R$750,00\n")
+	                 escreva("Escolha seu Headset: \n")
+	                 leia(selecH)
+	                 
+	           	        se(selecH == 1){
+	                        escreva(pagamento())
+	                        escreva(entrega())
+	                        escreva("Agradecemos por escolher nossa loja \n")
+	                    }
+	                        senao se(selecH == 2){
+	                            escreva(pagamento())
+	                            escreva(entrega())
+	                            escreva("Agradecemos por escolher nossa loja \n")
+	                        }
+	                            senao se(selecH == 3){
+	                                escreva(pagamento())
+	                                escreva(entrega())
+	                                escreva("Agradecemos por escolher nossa loja \n")
+	                            }
+	                                senao se(selecH == 4){
+	                                    escreva(pagamento())
+	                                    escreva(entrega())
+	                                    escreva("Agradecemos por escolher nossa loja \n")
+	                                }
+	           }
+	                retorne " "
+            }
+}    
