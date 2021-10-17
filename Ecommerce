@@ -11,6 +11,7 @@ programa {
 	    escreva("1- Cadastro/login \n")
 	    escreva("2- Catalogo \n")
 	    escreva("3- Parcerias \n")
+	    escreva("4- LoginAdm \n\n")
 	    leia(opcao)
 	        se(opcao == 1){
 	            escreva(cadastro())
@@ -30,7 +31,10 @@ programa {
                 senao se(opcao == 3){
                     escreva(parceria())
                 }
-	            
+                    senao se(opcao == 4){
+                        escreva(loginAdm())
+                    }
+                    
 	}
 	
 	funcao cadeia pagamento(){
@@ -215,7 +219,7 @@ programa {
 	       escreva("Razer \n")
 	       escreva("Hyperx \n")
 	       escreva("Logitech \n")
-	       escreva("GloboPlay \n")
+	       escreva("GloboPlay \n\n")
 	       
 	       escreva("Você deseja se torna parceiro da Empresa? (s/n)\n")
 	       leia(opcaoParceiro)
@@ -235,6 +239,53 @@ programa {
 	       retorne " "
 	   }
 	   
+	   funcao cadeia financeiro(){
+	       inteiro montante= 100000
+	       inteiro Trazer= 500, Mrazer= 200, Hrazer=500
+	       inteiro Thyperx= 220, Mhyperx= 190, Hhyperx= 400
+	       inteiro Tlogitech= 220, Mlogitech=180, Hlogitech= 610
+	       inteiro TnumR,TnumH,TnumL
+	       inteiro MnumR,MnumH,MnumL
+	       inteiro HnumR,HnumH,HnumL
+	       inteiro resultadoT,resultadoM,resultadoH
+	       
+	       escreva("Digite quantos teclados da Razer foram comprados: \n")
+	       leia(TnumR)
+	       escreva("Digite quantos teclados da Hyperx foram comprados: \n")
+	       leia(TnumH)
+	       escreva("Digite quantos teclados da Logitech foram comprados: \n")
+	       leia(TnumL)
+	       
+	       resultadoT=(Trazer*TnumR)+(Thyperx*TnumH)+(Tlogitech+TnumL)
+	       
+	       
+	       escreva("Digite quantos mouses da Razer foram comprados: \n")
+	       leia(MnumR)
+	       escreva("Digite quantos mouses da Hyperx foram comprados: \n")
+	       leia(MnumH)
+	       escreva("Digite quantos mouses da Logitech foram comprados: \n")
+	       leia(MnumL)
+	       
+	       resultadoM=(Mrazer*MnumR)+(Mhyperx*MnumH)+(Mlogitech+MnumL)
+	       
+	       
+	       escreva("Digite quantos headsets da Razer foram comprados: \n")
+	       leia(HnumR)
+	       escreva("Digite quantos headsets da Hyperx foram comprados: \n")
+	       leia(HnumH)
+	       escreva("Digite quantos headsets da Logitech foram comprados: \n")
+	       leia(HnumL)
+	       
+	       resultadoH=(Hrazer*HnumR)+(Hhyperx*HnumH)+(Hlogitech+HnumL)
+	       
+	       
+	       montante= montante - resultadoT - resultadoM - resultadoH 
+	       
+	       escreva("O valor do seu montante apos a compra dos produtos foi de: ",montante)
+	       
+	       retorne " "
+	   }
+	   
 	   funcao cadeia login(){
 	       cadeia user, senha
 	       
@@ -247,6 +298,34 @@ programa {
 	                    escreva(catalogoPrecoCli())
 	                }
 	                retorne " "
+	   }
+	   
+	   funcao cadeia loginAdm(){
+	       cadeia user, senha
+	       inteiro x
+	       
+	       escreva("Digite seu usuário: \n")
+	       leia(user)
+	       escreva("Digite sua senha: \n")
+	       leia(senha)
+	       
+	        se((user == "gersuadm")e(senha == "gersuadm123")){
+	            
+	            limpa()
+	            escreva("Opções de pesquisa: \n")
+	            escreva("1- Estoque \n")
+	            escreva("2- Financeiro \n")
+	            leia(x)
+	                
+	                se(x == 1){
+	                    escreva(estoque())
+	                }
+	                    senao se(x == 2){
+	                        escreva(financeiro())
+	                   }
+	                
+	        }
+	        retorne " "
 	   }
 	   
 	   funcao cadeia compra(){
